@@ -15,7 +15,75 @@ This document will go through how to webscrape for a single Florida county's cur
 ##Alachua
 
 Loading packages
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(rvest)
 library(dplyr)
+library(stringr)
+```
+
+
+reading in url
+```{r}
+url <- 'https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ALA'
+webpage <- read_html(url)
+```
+
+
+Getting Precinct numbers. 
+```{r}
+#Using CSS selectors to scrape the precinct number section
+number_data_html <- html_nodes(webpage,'.PageSection .Title')
+
+#Converting the data to text
+number_data <- html_text(number_data_html)
+
+#Inspecting data
+head(number_data)
+
+##Converting to numeric vector
+prec_numbers <- as.numeric(str_remove_all(number_data, "Precinct "))
+
+##You could also skip the as.numeric() if your precinct colomn in the voterfile is a character column rather then a numeric column. The precinct columns just need to be the same type to be matched for determining distance calculations
+```
+
+
+Getting addresses
+```{r}
+#Using CSS selectors to scrape the address section
+address_data_html <- html_nodes(webpage,'.NameAndAddress a')
+
+#Converting the data to text
+address_data <- html_text(address_data_html)
+
+#Inspecting data
+head(address_data)
+
+##replacing \r\n\r\n\t\t\t\t\t\t\t\t\t with ", "
+poll_address <- str_replace_all(address_data, "\r\n\t\t\t\t\t\t\t\t\t", ", ")
+```
+
+
+Getting location names (in case they are needed for crosschecking addresses later)
+
+```{r}
+#Using CSS selectors to scrape the address section
+name_data_html <- html_nodes(webpage,'.Name')
+
+#Converting the data to text
+name_data <- html_text(name_data_html)
+
+#Inspecting data
+head(name_data)
+
+##removing \r\n\r\n\t\t\t\t\t\t\t\t\t and \r\n\t\t\t\t\t\t\t\t
+poll_name <- str_remove_all(name_data, "\r\n\t\t\t\t\t\t\t\t\t")
+poll_names <- str_remove_all(poll_name, "\r\n\t\t\t\t\t\t\t\t")
+head(poll_names)
+```
+
+Making a data frame
+
+```{r}
+ALApollplace <- data.frame(precinct = prec_numbers, address = poll_address, pollname = poll_names)
+head(ALApollplace)
 ```
