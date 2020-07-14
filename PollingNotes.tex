@@ -1,0 +1,299 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage} %full page typesetting
+\usepackage{setspace} %allows for non-singlespacing
+\usepackage{graphicx} %graphics capabilities
+\usepackage{latexsym} %extra symbols
+\usepackage{rotating} %rotation for figures
+\usepackage{longtable} %tables that fill more than a single page
+\usepackage{hyperref} %hypertext links in the document
+\usepackage{natbib} %better bibliographies
+\usepackage{authblk} %author and affiliation in opening
+\usepackage{mathpazo} %use palatino font, rather than times
+
+\title{\tb{Polling Location Notes}}
+
+\author{Annika}
+\affil{New College of Florida}
+
+\date{June 6, 2020}
+\doublespacing
+
+\begin{document}
+
+\maketitle
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section{Entire State}
+\begin{itemize}
+  \item Have not found dataset or source for polling locations across the state that is not current
+  \item \href{https://registration.elections.myflorida.com/CheckVoterStatus}{Find polling location page here}, search function navigates to individual SoE websites for polling location, not easily web-scraped
+  \item would only be current
+  \item While also current, it does seem that voterfocus.com has lists of current voting locations by precinct for each county in florida (linked to by SOE sites) but you're redirected if you don't go to the specific county address. Could be used to create a database in the future
+\end{itemize}
+
+\clearpage
+
+\section{Individual Counties}
+
+As a note for this section, I am not certain if polling locations have or have not changed since precincts were last updated. Any exceptions will be noted for individual counties
+
+
+\subsection{Precincts drawn before 2016 or undated}
+
+Bradford County
+\begin{itemize}
+  \item Precincts updated June 2014, based on map linked \href{https://www.bradfordelections.com/Portals/Bradford/Documents/precinct_map.pdf?ver=2014-06-25-110922-550}{here}, no date in pdf
+  \item List of polling locations at \href{https://www.bradfordelections.com/Portals/Bradford/Documents/Bradford%20Polling%20Locations%20with%20Address.pdf?ver=2019-09-26-161907-300}{this link}, not scrapable but easily copy-pasted.
+  \item Based on link it seems there was a change to polling locations in September 2019
+\end{itemize}
+Broward County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-BRO}{Go here} for potentially scrapable polling locations
+  \item find when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Calhoun County
+\begin{itemize}
+  \item Precincts updated 2011, see \href{https://www.votecalhoun.com/portals/calhoun/documents/calhouncountyprecinctmap2011.pdf}{this link}
+  \item List of polling locations at \href{https://www.votecalhoun.com/Voter-Information/Polling-Place-Locations}{this link},  seems easily copy-pasted but not web-scraped
+\end{itemize}
+Charlotte County
+\begin{itemize}
+  \item Any precinct changes not clear \href{https://www.charlottevotes.com/Maps/Precinct-Maps}{maps here} are undated
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-CHA}{this link},  seems like it could be web-scraped
+  \item Without a reference date, likely unusable
+\end{itemize}
+Clay County
+\begin{itemize}
+  \item Any precinct changes not clear interactive \href{https://www.clayelections.gov/General-Information/Voter-Information-Map}{map here} is undated
+  \item List of polling locations at \href{https://www.clayelections.gov/Election-Information/Polling-Locations}{this link},  seems like it could be web-scraped
+  \item Without a reference date, likely unusable
+\end{itemize}
+Collier County
+\begin{itemize}
+  \item Any precinct changes not clear interactive \href{https://www.colliervotes.com/Voting-System-Maps-Stats/Precinct-Map-Voting-Boundaries}{map here} is undated
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-CLL}{this link},  seems like it could be web-scraped
+  \item Without a reference date, likely unusable
+\end{itemize}
+DeSoto County
+\begin{itemize}
+  \item No map that I could find or date of last precinct update
+  \item Current polling locations \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-DES}{available here}
+  \item This county is probably unusable for this project unless a larger dataset of past polling locations for the state is found or date of last precinct chane is found
+\end{itemize}
+Dixie County
+\begin{itemize}
+  \item Precincts updated 2012, see \href{https://www.dixievotes.com/Portals/Dixie/Documents/Maps/Precinct2012.pdf?ver=2014-06-04-143440-740}{map here}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-DIXs}{this link},  seems like it could be web-scraped
+\end{itemize}
+Escambia County
+\begin{itemize}
+  \item Precincts updated 2012, see \href{https://escambiavotes.com/docs/default-source/aws/Precincts_by_District_Combined.pdf}{map here}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ESC}{this link},  seems like it could be web-scraped
+  \item Emergency polling location change for 2020 primary at \href{https://escambiavotes.com/news/2020/03/11/polling-location-change}{this link}
+  \item May be useable since precincts have not been changed
+\end{itemize}
+Franklin County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-FRA}{Go here} or \href{https://www.votefranklin.com/m/Voter-Information/Polling-Places}{here} for potentially scrapable polling locations
+  \item Because the interactive \href{https://www.arcgis.com/apps/webappviewer/index.html?id=02420ce7216f440a9b509e63510bfd9f}{map here} does not show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Gadsden County
+\begin{itemize}
+  \item Precincts updated 2013, see \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-GAD}{map here}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-GAD}{this link},  seems like it could be web-scraped
+\end{itemize}
+Gilchrist County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-GIL}{Go here} for potentially scrapable polling locations
+  \item Because the pdf \href{https://www.votegilchrist.com/Portals/Gilchrist/Documents/cm_voter__comm_dist.pdf}{map here} does not show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Glades County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-GLA}{Go here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Gulf County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-GUL}{Go here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Hamilton County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HAM}{Go here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Hardee County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HAR}{Go here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Holmes County
+\begin{itemize}
+  \item Precincts updated 2014, see \href{https://www.holmeselections.com/Portals/Holmes/Documents/Precinct%20Map.pdf?ver=2014-02-07-162932-680}{map here}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HOL}{this link} or \href{https://www.holmeselections.com/Where-Do-I-Vote/Election-Day-Voting-Locations}{this link}, seems like it could be web-scraped
+  \item It appears polling locations are same on map as on link
+\end{itemize}
+Indian River County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-IND}{Go here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Jefferson County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-JEF}{Go here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Lafayette County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-LAF}{Go here} or \href{https://www.lafayettevotes.net/m/Voter-Information/Polling-Places}{here} for potentially scrapable polling locations
+  \item Because there are no maps or pages that show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Lee County
+\begin{itemize}
+  \item \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-LEE}{Go here} for potentially scrapable polling locations
+  \item Because the interactive map does not show when precincts were last drawn or polling location history, likely unusable for this project
+\end{itemize}
+Manatee County
+\begin{itemize}
+  \item Precincts updated 2013, see \href{https://www.votemanatee.com/portals/manatee/documents/pct2013.pdf}{map here}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-MAN}{this link}, seems like it could be web-scraped
+  \item It appears polling locations are same on map as on link
+\end{itemize}
+
+\clearpage
+
+\subsection{Precincts drawn in 2016}
+
+Alachua County
+\begin{itemize}
+  \item Precincts updated March or May 2016, see \href{https://www.votealachua.com/Elections/Maps}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ALA}{this link},  seems like it could be scraped
+  \item Polling location changes for 2020 clearly stated \href{https://www.votealachua.com/Voters/Precinct-Voting}{here}, could do an analysis without these precincts
+\end{itemize}
+Pinellas County
+\begin{itemize}
+  \item Precincts updated April 2016, see \href{https://www.votepinellas.com/General-Information/Maps/District-Maps}{this link}
+  \item List of polling locations \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-PIN}{here},  seems like it could be scraped
+\end{itemize}
+
+
+
+\clearpage
+
+\subsection{Precincts drawn in 2017}
+
+Bay County
+\begin{itemize}
+  \item Precincts updated in July 2017 and special "Mega" polling locations for 2018, see maps at \href{https://www.bayvotes.org/Voter-Info/Maps-and-Boundaries}{this link}
+  \item List of polling locations in maps and is not scrapable, would need to be copied by hand
+\end{itemize}
+Hendry County
+\begin{itemize}
+  \item Precincts updated 2017, see map at \href{https://www.hendryelections.org/Portals/Hendry/2016-2018%20Precincts.pdf}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HEN}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+Hillsborough County
+\begin{itemize}
+  \item It seens precincts updated June 2017, see maps at \href{https://www.votehillsborough.org/RESEARCH-DATA/MAPS-DISTRICTS-HBC-Indivudual-Maps}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HIL}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+Jackson County
+\begin{itemize}
+  \item It seens precincts updated July 2017, see fine print of the precinct map at \href{https://www.jacksoncountysoe.org/Portals/Jackson/Documents/Accessibility%20PDF%20Fixes/Current_Precincts_07_18_2017FIXED.pdf?ver=2019-01-24-084548-780}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-JAC}{this link},  seems like locations could be web-scraped
+  \item Seems like the polling locations on map match the list so should be fully useable.
+\end{itemize}
+
+
+\clearpage
+
+\subsection{Precincts drawn in 2018}
+
+Baker County
+\begin{itemize}
+  \item Precincts updated 2018, see pdf map at \href{https://www.bakerelections.com/Portals/Baker/Documents/Precinct%20Map%202018.pdf}{this link} for this (date in title)
+  \item List of polling locations at \href{https://www.bakerelections.com/m/Election-Information/Precinct-Finder}{this link} by clicking "All Precincts in Baker County"
+  \item While list is in similar format to other counties, it does not seem scrapable
+\end{itemize}
+Flagler County
+\begin{itemize}
+  \item Precincts updated 2018, see \href{https://www.flaglerelections.com/For-Voters/District-Precinct-Maps}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-FLA}{this link} or \href{https://www.flaglerelections.com/For-Voters/Precinct-List}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+Highlands County
+\begin{itemize}
+  \item Precincts updated October 2018, see \href{https://www.votehighlands.com/Portals/Highlands/Documents/2018%20Precincts%20Map_092818.pdf?ver=2018-10-16-131000-593}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HIG}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+Lake County
+\begin{itemize}
+  \item Precincts updated July 2018, see \href{https://www.lakecountyfl.gov/pdfs/gis/maps/VotingPrecincts_34x44-ADA.pdf}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-LAK}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+Liberty County
+\begin{itemize}
+  \item Precincts updated 2018, see \href{http://www.libertycad.com/wp-content/uploads/2018/11/2018-VP-MAP.pdf}{this link}
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-LIB}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+
+
+\clearpage
+
+\subsection{Precincts drawn in 2019}
+Leon County
+\begin{itemize}
+  \item Precincts maps dated 2019 but pdf link has 2016, see \href{https://www.leonvotes.org/Portals/Leon/Documents/Maps_and%20Demographics/Pdfs/2016/Pct_Mapbook_2016.pdf}{this link}. Going with 2019 to be safe
+  \item List of polling locations at \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-LEO}{this link},  seems like locations could be web-scraped
+  \item May be useable if we only go back to 2018 elections
+\end{itemize}
+
+\clearpage
+
+\subsection{Precincts drawn in 2020}
+
+Brevard County
+\begin{itemize}
+  \item Many individual maps of precincts and polling locations, see \href{https://www.votebrevard.com/m/Maps/Precinct-Maps-Copy}{this link}
+  \item District maps show that there were updates as recently as 2020 \href{https://www.votebrevard.com/m/Maps/District-Maps}{available here}
+  \item I believe this county is unusable for this project unless a larger dataset of past polling locations for the state is found
+\end{itemize}
+Citrus County
+\begin{itemize}
+  \item Some hitorical pdf maps of precincts but not polling locations, for 2020 precinct map see \href{https://www.votecitrus.com/Portals/Citrus/Pct%20map%20February%20Layout_2.pdf?ver=2020-04-28-200823-073}{this link}
+  \item 2020 polling locations \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-CIT}{available here}
+  \item This county is probably unusable for this project unless a larger dataset of past polling locations for the state is found
+\end{itemize}
+Columbia County
+\begin{itemize}
+  \item For 2020 precinct map see \href{https://www.votecolumbia.com/Portals/Columbia/Documents/SOE_Prec2019.pdf?ver=2020-06-29-135723-083}{this link}
+  \item 2020 polling locations \href{https://www.votecolumbia.com/Voter-Info/Precincts-and-Maps}{available here}
+  \item This county is probably unusable for this project unless a larger dataset of past polling locations for the state is found
+\end{itemize}
+Dixie County
+\begin{itemize}
+  \item Maps have varying dates, see dates on \href{https://www.duvalelections.com/Voter-Information/Maps/Precinct-Maps}{maps here}
+  \item List of polling locations at \href{https://www.duvalelections.com/Election-Information/2015-Duval-General-Polling-Locations}{this link} or \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-DUV}{this link},  seems like latter could be web-scraped
+\end{itemize}
+Hernando County
+\begin{itemize}
+  \item 2020 precinct \href{https://www.hernandovotes.com/Portals/Hernando/Voting%20Precincts062520.pdf?ver=2020-06-26-132804-290}{maps here}
+  \item List of polling locations at \href{https://www.hernandovotes.com/Portals/Hernando/Documents/Polling%20Locations.pdf}{this link} or \href{https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-HER}{this link},  seems like latter could be web-scraped
+\end{itemize}
+
+\clearpage
+
+\subsection{Current Recommendations}
+
+Without historical polling locations at the moment, I feel Alachua county, and potentially a few smaller counties, are our best bet.  We could do Alachua without the recently changed polling locations for multiple elections. With precincts having last been updated in 2016 it seems reasonable that no other polling locations have changed since then. We might also be able to see if there is a notable difference in turnout for the precincts that had a change of polling location.
+
+\end{document}
