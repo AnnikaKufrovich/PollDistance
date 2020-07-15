@@ -41,9 +41,8 @@ number_data <- html_text(number_data_html)
 head(number_data)
 
 ##Converting to numeric vector
-prec_numbers <- as.numeric(str_remove_all(number_data, "Precinct "))
+prec_numbers <- str_remove_all(number_data, "Precinct ")
 
-##You could also skip the as.numeric() if your precinct colomn in the voterfile is a character column rather then a numeric column. The precinct columns just need to be the same type to be matched for determining distance calculations
 ```
 
 
@@ -87,3 +86,16 @@ Making a data frame
 ALApollplace <- data.frame(precinct = prec_numbers, address = poll_address, pollname = poll_names)
 head(ALApollplace)
 ```
+
+
+
+
+##Every Florida County
+
+Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website.
+
+```{r}
+endings <- c("ALA", )
+
+```
+
