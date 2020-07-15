@@ -92,10 +92,10 @@ head(ALApollplace)
 
 ##Every Florida County
 
-Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website.
+Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website. You can find official county abbreviations here: [https://floridaqsoparty.org/counties/counties-list/], however the voterfocus website uses the first 3 letters of the county name. (Will check later what abbreviations voter file has.)
 
 ```{r}
-endings <- c("ALA", )
+endings <- c("ALA", "BAK", "BAY", "BRA", "BRE", "BRO")
 
 ```
 
