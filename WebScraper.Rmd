@@ -24,7 +24,7 @@ library(stringr)
 
 reading in url
 ```{r}
-url <- 'https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ALA'
+url <- 'https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ALA' ##you could also use "", doesn't really matter
 webpage <- read_html(url)
 ```
 
@@ -109,16 +109,24 @@ incomplete_url <- "https://www.voterfocus.com/PrecinctFinder/precinctDirectory?c
 ##setting up empty vectors to be added to in for loop
 countyabr <- c()
 prec_nums <- c()
-
+addresses <- c()
 
 for(i in 1:length(endings)){
-  webpage <- read_html(paste0(incomplete_url, endings[i])) ##county specific webpage
+  webpage <- read_html(paste0(incomplete_url, endings[i])) ##reading county-specific webpage
   number.data.html <- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
   number.data <- html_text(number.data.html) ##converting to text
-  prec.numbers <- str_remove_all(number.data, "Precinct ")
+  prec.numbers <- str_remove_all(number.data, "Precinct ") #removing unnecesary part of string
   length <- length(prec.numbers) #needed to add county abbreviation for each precinct entry
-  countyabr <- c(countyabr, rep(endings[i], length)) #Adding county abreviation for each entry, can be changed later to appropriate abbreviations
-  prec_nums <- c(prec_nums, prec.numbers)
+  countyabr <- c(countyabr, rep(endings[i], length)) #Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file
+  prec_nums <- c(prec_nums, prec.numbers) #Adding precinct numbers
+  address.data.html <- html_nodes(webpage,'.NameAndAddress a') #scraping addresses
+  address.data <- html_text(address.data.html) ##converting to text
+  poll.address <- str_replace_all(address.data, "\r\n\t\t\t\t\t\t\t\t\t", ", ") #replacing unnecesary part of string
+  addresses <- c(addresses, poll.address) #adding to addresses vector
+  
 }
+
+
+
 
 ```
