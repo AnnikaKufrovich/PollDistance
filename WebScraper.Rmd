@@ -92,10 +92,14 @@ head(ALApollplace)
 
 ##Every Florida County
 
-Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website. You can find official county abbreviations here: [https://floridaqsoparty.org/counties/counties-list/], however the voterfocus website uses the first 3 letters of the county name. (Will check later what abbreviations voter file has.)
+Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website. You can find official county abbreviations here: [https://floridaqsoparty.org/counties/counties-list/], however the voterfocus website mainly uses the first 3 letters or different abbreviations of the county name. (Will check later what abbreviations voter file has.)
 
 ```{r}
-endings <- c("ALA", "BAK", "BAY", "BRA", "BRE", "BRO")
+endings <- c("ALA", "BAK", "BAY", "BRA", "BRE", "BRO", "CAL", "CHA", "CIT", "CLA", "CLL", "CLM", "DAD", "DES", "DIX", "DUV", "ESC", "FLA", "FRA", "GAD", "GIL", "GLA", "GUL", "HAM", "HAR", "HEN", "HER", "HIG", "HIL", "HOL", "IND", "JAC", "JEF", "LAF", "LAK", "LEE", "LEV", "LIB", "MAD", "MAN", "MRN", "MRT", "MON", "NAS", "OKA", "OKE", "OSC", "PAL", "PAS", "PIN", "POL", "PUT", "SAN", "SEM", "STJ", "STL", "SUM", "SUW", "TAY", "UNI", "VOL", "WAK", "WAL", "WAS")
+
+leo_ending <- c("LEO") ##Doing separately since one of the precincts at the time of coding has no polling location information in such a way that it could mess up the webscraper (eg it won't scrape NA or an empty line for precinct 1201)
+
+no_info_endings <- c("ORA", "SAR") ##Orange and Sarasota County's pages were empty as of 7/17/20
 
 ```
 
