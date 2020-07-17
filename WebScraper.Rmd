@@ -65,7 +65,7 @@ poll_address <- str_replace_all(address_data, "\r\n\t\t\t\t\t\t\t\t\t", ", ")
 Getting location names (in case they are needed for crosschecking addresses later)
 
 ```{r}
-#Using CSS selectors to scrape the address section
+#Using CSS selectors to scrape the name section
 name_data_html <- html_nodes(webpage,'.Name')
 
 #Converting the data to text
@@ -95,9 +95,11 @@ head(ALApollplace)
 Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website. You can find official county abbreviations here: [https://floridaqsoparty.org/counties/counties-list/], however the voterfocus website mainly uses the first 3 letters or different abbreviations of the county name. (Will check later what abbreviations voter file has.)
 
 ```{r}
-endings <- c("ALA", "BAK", "BAY", "BRA", "BRE", "BRO", "CAL", "CHA", "CIT", "CLA", "CLL", "CLM", "DAD", "DES", "DIX", "DUV", "ESC", "FLA", "FRA", "GAD", "GIL", "GLA", "GUL", "HAM", "HAR", "HEN", "HER", "HIG", "HIL", "HOL", "IND", "JAC", "JEF", "LAF", "LAK", "LEE", "LEV", "LIB", "MAD", "MAN", "MRN", "MRT", "MON", "NAS", "OKA", "OKE", "OSC", "PAL", "PAS", "PIN", "POL", "PUT", "SAN", "SEM", "STJ", "STL", "SUM", "SUW", "TAY", "UNI", "VOL", "WAK", "WAL", "WAS")
+endings <- c("ALA", "BAK", "BAY", "BRA", "BRE", "BRO", "CAL", "CHA", "CIT", "CLA", "CLL", "CLM", "DAD", "DES", "DIX", "DUV", "ESC", "FLA", "FRA", "GAD", "GIL", "GLA", "GUL", "HAM", "HAR", "HEN", "HER", "HIG", "HIL", "HOL", "IND", "JAC", "JEF", "LAF", "LAK", "LEV", "LIB", "MAD", "MAN", "MRN", "MRT", "MON", "NAS", "OKA", "OKE", "OSC", "PAL", "PAS", "PIN", "POL", "PUT", "SAN", "SEM", "STJ", "STL", "SUM", "SUW", "TAY", "UNI", "VOL", "WAK", "WAL", "WAS")
 
 leo_ending <- c("LEO") ##Doing separately since one of the precincts at the time of coding has no polling location information in such a way that it could mess up the webscraper (eg it won't scrape NA or an empty line for precinct 1201)
+lee_ending <- c("LEE") ##similar issue for lee county but for multiple precincts
+
 
 no_info_endings <- c("ORA", "SAR") ##Orange and Sarasota County's pages were empty as of 7/17/20
 
@@ -110,23 +112,31 @@ incomplete_url <- "https://www.voterfocus.com/PrecinctFinder/precinctDirectory?c
 countyabr <- c()
 prec_nums <- c()
 addresses <- c()
+pollnames <- c()
+#lengthsequal <- c(), this can be used with commented out lines of the for loop to test if you have an equal number of entries for precincts and any other data of interest in the webscraper, only works for 1 thing at a time in this format (eg only precinct number and addresses or precinct number and poll name). Vector should all be TRUE if everything is equal, any instances of false entries should be investigated
 
 for(i in 1:length(endings)){
   webpage <- read_html(paste0(incomplete_url, endings[i])) ##reading county-specific webpage
   number.data.html <- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
   number.data <- html_text(number.data.html) ##converting to text
-  prec.numbers <- str_remove_all(number.data, "Precinct ") #removing unnecesary part of string
-  length <- length(prec.numbers) #needed to add county abbreviation for each precinct entry
-  countyabr <- c(countyabr, rep(endings[i], length)) #Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file
-  prec_nums <- c(prec_nums, prec.numbers) #Adding precinct numbers
-  address.data.html <- html_nodes(webpage,'.NameAndAddress a') #scraping addresses
+  prec.numbers <- str_remove_all(number.data, "Precinct ") ##removing unnecesary part of string
+  length <- length(prec.numbers) ##Needed to add county abbreviation for each precinct entry in next line
+  countyabr <- c(countyabr, rep(endings[i], length)) ##Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file
+  prec_nums <- c(prec_nums, prec.numbers) ##Adding precinct numbers
+  address.data.html <- html_nodes(webpage,'.NameAndAddress a') ##scraping addresses
   address.data <- html_text(address.data.html) ##converting to text
-  poll.address <- str_replace_all(address.data, "\r\n\t\t\t\t\t\t\t\t\t", ", ") #replacing unnecesary part of string
-  addresses <- c(addresses, poll.address) #adding to addresses vector
-  
+  poll.address <- str_replace_all(address.data, "\r\n\t\t\t\t\t\t\t\t\t", ", ") ##replacing unnecesary part of string
+  addresses <- c(addresses, poll.address) ##adding to addresses vector
+  #length2 <- length(poll.names)
+  #lengthsequal[i] <- (length == length2)
+  name.data.html <- html_nodes(webpage,'.Name') ##scraping poll names
+  name.data <- html_text(name.data.html) ##convertin to text
+  poll.name <- str_remove_all(name.data, "\r\n\t\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string
+  poll.names <- str_remove_all(poll.name, "\r\n\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string part 2
+  pollnames <- c(pollnames, poll.names)
+  #length3 <- length(poll.names)
+  #lengthsequal[i] <- (length == length3)
 }
-
-
 
 
 ```
