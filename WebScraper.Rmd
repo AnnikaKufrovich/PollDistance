@@ -105,6 +105,9 @@ no_info_endings <- c("ORA", "SAR") ##Orange and Sarasota County's pages were emp
 
 ```
 
+
+Main automated webscraper
+
 ```{r}
 incomplete_url <- "https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-"
 
@@ -113,7 +116,7 @@ countyabr <- c()
 prec_nums <- c()
 addresses <- c()
 pollnames <- c()
-#lengthsequal <- c(), this can be used with commented out lines of the for loop to test if you have an equal number of entries for precincts and any other data of interest in the webscraper, only works for 1 thing at a time in this format (eg only precinct number and addresses or precinct number and poll name). Vector should all be TRUE if everything is equal, any instances of false entries should be investigated
+lengthsequal <- c() ##this can be used with commented out lines of the for loop to test if you have an equal number of entries for precincts and any other data of interest in the webscraper, only works for 1 thing at a time in this format (eg only precinct number and addresses or precinct number and poll name). Vector should all be TRUE if everything is equal, any instances of false entries should be investigated
 
 for(i in 1:length(endings)){
   webpage <- read_html(paste0(incomplete_url, endings[i])) ##reading county-specific webpage
@@ -130,13 +133,68 @@ for(i in 1:length(endings)){
   #length2 <- length(poll.names)
   #lengthsequal[i] <- (length == length2)
   name.data.html <- html_nodes(webpage,'.Name') ##scraping poll names
-  name.data <- html_text(name.data.html) ##convertin to text
+  name.data <- html_text(name.data.html) ##converting to text
   poll.name <- str_remove_all(name.data, "\r\n\t\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string
   poll.names <- str_remove_all(poll.name, "\r\n\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string part 2
-  pollnames <- c(pollnames, poll.names)
-  #length3 <- length(poll.names)
-  #lengthsequal[i] <- (length == length3)
+  pollnames <- c(pollnames, poll.names) ##adding to pollnames vector
+  length3 <- length(poll.names)
+  lengthsequal[i] <- (length == length3)
 }
-
-
 ```
+
+
+Webscraping odd counties, It's worth noting that these could have been incorporated into the main webscraper loop with if statements but I decided not to do this since the counties have 2 different problems. This may be done later
+
+```{r}
+##Leon county is missing data  for precinct 1201 (first listed), and for several other scattered precincts will fix this later
+
+#webpage <- read_html(paste0(incomplete_url, leo_ending)) ##reading county-specific webpage, changed endings[i] to leo_ending
+#number.data.html <- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
+#number.data <- html_text(number.data.html) ##converting to text
+#prec.numbers <- str_remove_all(number.data, "Precinct ") ##removing unnecesary part of string
+#length <- length(prec.numbers) ##Needed to add county abbreviation for each precinct entry in next line
+#countyabr <- c(countyabr, rep(leo_ending, length)) ##Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file, changed to leo_ending
+#prec_nums <- c(prec_nums, prec.numbers) ##Adding precinct numbers
+#address.data.html <- html_nodes(webpage,'.NameAndAddress a') ##scraping addresses
+#address.data <- html_text(address.data.html) ##converting to text
+#poll.address <- str_replace_all(address.data, "\r\n\t\t\t\t\t\t\t\t\t", ", ") ##replacing unnecesary part of string
+#addresses <- c(addresses, c(NA, poll.address)) ##adding to addresses vector, putting one NA before address entries since the actual first precinct has no address
+#length2 <- length(poll.names)
+#lengthsequal[i] <- (length == length2)
+#name.data.html <- html_nodes(webpage,'.Name') ##scraping poll names
+#name.data <- html_text(name.data.html) ##converting to text
+#poll.name <- str_remove_all(name.data, "\r\n\t\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string
+#poll.names <- str_remove_all(poll.name, "\r\n\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string part 2
+#pollnames <- c(pollnames, c(NA, poll.names)) ##adding to pollnames vector, same change as addresses line
+#length3 <- length(poll.names)
+#lengthsequal[i] <- (length == length3)
+
+
+##Lee County has several empty precincts at the end
+
+webpage <- read_html(paste0(incomplete_url, lee_ending)) ##reading county-specific webpage, changed to lee_ending
+number.data.html <- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
+number.data <- html_text(number.data.html) ##converting to text
+prec.numbers <- str_remove_all(number.data, "Precinct ") ##removing unnecesary part of string
+length <- length(prec.numbers) ##Needed to add county abbreviation for each precinct entry in next line
+countyabr <- c(countyabr, rep(lee_ending, length)) ##Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file, changed to lee_ending
+prec_nums <- c(prec_nums, prec.numbers) ##Adding precinct numbers
+address.data.html <- html_nodes(webpage,'.NameAndAddress a') ##scraping addresses
+address.data <- html_text(address.data.html) ##converting to text
+poll.address <- str_replace_all(address.data, "\r\n\t\t\t\t\t\t\t\t\t", ", ") ##replacing unnecesary part of string
+addresses <- c(addresses, poll.address) ##adding to addresses vector
+#length2 <- length(poll.address)
+#lengthsequal[i] <- (length == length2)
+name.data.html <- html_nodes(webpage,'.Name') ##scraping poll names
+name.data <- html_text(name.data.html) ##converting to text
+poll.name <- str_remove_all(name.data, "\r\n\t\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string
+poll.names <- str_remove_all(poll.name, "\r\n\t\t\t\t\t\t\t\t") ##replacing unnecesary part of string part 2
+length3 <- length(poll.names) #uncommented and moved up to add appropriate amount of NAs
+pollnames <- c(pollnames, c(poll.names, rep(NA, (length - length3)))) ##adding to pollnames vector, adding NAs to the end by the difference in lengths
+#lengthsequal[i] <- (length == length3)
+```
+
+
+
+
+

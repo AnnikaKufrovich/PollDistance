@@ -196,7 +196,7 @@ summary {
 library(dplyr)
 library(stringr)</code></pre>
 <p>reading in url</p>
-<pre class="r"><code>url &lt;- 'https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ALA'
+<pre class="r"><code>url &lt;- 'https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-ALA' ##you could also use &quot;&quot;, doesn't really matter
 webpage &lt;- read_html(url)</code></pre>
 <p>Getting Precinct numbers.</p>
 <pre class="r"><code>#Using CSS selectors to scrape the precinct number section
@@ -209,7 +209,7 @@ number_data &lt;- html_text(number_data_html)
 head(number_data)</code></pre>
 <pre><code>## [1] &quot;Precinct 01&quot; &quot;Precinct 02&quot; &quot;Precinct 03&quot; &quot;Precinct 04&quot; &quot;Precinct 05&quot;
 ## [6] &quot;Precinct 06&quot;</code></pre>
-<pre class="r"><code>##Converting to numeric vector
+<pre class="r"><code>##Removing precinct string from all entries
 prec_numbers &lt;- str_remove_all(number_data, &quot;Precinct &quot;)</code></pre>
 <p>Getting addresses</p>
 <pre class="r"><code>#Using CSS selectors to scrape the address section
@@ -229,7 +229,7 @@ head(address_data)</code></pre>
 <pre class="r"><code>##replacing \r\n\r\n\t\t\t\t\t\t\t\t\t with &quot;, &quot;
 poll_address &lt;- str_replace_all(address_data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;, &quot;, &quot;)</code></pre>
 <p>Getting location names (in case they are needed for crosschecking addresses later)</p>
-<pre class="r"><code>#Using CSS selectors to scrape the address section
+<pre class="r"><code>#Using CSS selectors to scrape the name section
 name_data_html &lt;- html_nodes(webpage,'.Name')
 
 #Converting the data to text
@@ -270,8 +270,93 @@ head(ALApollplace)</code></pre>
 </div>
 <div id="every-florida-county" class="section level2">
 <h2>Every Florida County</h2>
-<p>Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website. You can find official county abbreviations here: [<a href="https://floridaqsoparty.org/counties/counties-list/" class="uri">https://floridaqsoparty.org/counties/counties-list/</a>], however the voterfocus website uses the first 3 letters of the county name. (Will check later what abbreviations voter file has.)</p>
-<pre class="r"><code>endings &lt;- c(&quot;ALA&quot;, &quot;BAK&quot;, &quot;BAY&quot;, &quot;BRA&quot;, &quot;BRE&quot;, &quot;BRO&quot;)</code></pre>
+<p>Making a vector of all the 3 letter endings for the voterfocus link. Leaving out Orange County and Sarasota County since they have no precinct polling locations displayed on this website. You can find official county abbreviations here: [<a href="https://floridaqsoparty.org/counties/counties-list/" class="uri">https://floridaqsoparty.org/counties/counties-list/</a>], however the voterfocus website mainly uses the first 3 letters or different abbreviations of the county name. (Will check later what abbreviations voter file has.)</p>
+<pre class="r"><code>endings &lt;- c(&quot;ALA&quot;, &quot;BAK&quot;, &quot;BAY&quot;, &quot;BRA&quot;, &quot;BRE&quot;, &quot;BRO&quot;, &quot;CAL&quot;, &quot;CHA&quot;, &quot;CIT&quot;, &quot;CLA&quot;, &quot;CLL&quot;, &quot;CLM&quot;, &quot;DAD&quot;, &quot;DES&quot;, &quot;DIX&quot;, &quot;DUV&quot;, &quot;ESC&quot;, &quot;FLA&quot;, &quot;FRA&quot;, &quot;GAD&quot;, &quot;GIL&quot;, &quot;GLA&quot;, &quot;GUL&quot;, &quot;HAM&quot;, &quot;HAR&quot;, &quot;HEN&quot;, &quot;HER&quot;, &quot;HIG&quot;, &quot;HIL&quot;, &quot;HOL&quot;, &quot;IND&quot;, &quot;JAC&quot;, &quot;JEF&quot;, &quot;LAF&quot;, &quot;LAK&quot;, &quot;LEV&quot;, &quot;LIB&quot;, &quot;MAD&quot;, &quot;MAN&quot;, &quot;MRN&quot;, &quot;MRT&quot;, &quot;MON&quot;, &quot;NAS&quot;, &quot;OKA&quot;, &quot;OKE&quot;, &quot;OSC&quot;, &quot;PAL&quot;, &quot;PAS&quot;, &quot;PIN&quot;, &quot;POL&quot;, &quot;PUT&quot;, &quot;SAN&quot;, &quot;SEM&quot;, &quot;STJ&quot;, &quot;STL&quot;, &quot;SUM&quot;, &quot;SUW&quot;, &quot;TAY&quot;, &quot;UNI&quot;, &quot;VOL&quot;, &quot;WAK&quot;, &quot;WAL&quot;, &quot;WAS&quot;)
+
+leo_ending &lt;- c(&quot;LEO&quot;) ##Doing separately since one of the precincts at the time of coding has no polling location information in such a way that it could mess up the webscraper (eg it won't scrape NA or an empty line for precinct 1201)
+lee_ending &lt;- c(&quot;LEE&quot;) ##similar issue for lee county but for multiple precincts
+
+
+no_info_endings &lt;- c(&quot;ORA&quot;, &quot;SAR&quot;) ##Orange and Sarasota County's pages were empty as of 7/17/20</code></pre>
+<p>Main automated webscraper</p>
+<pre class="r"><code>incomplete_url &lt;- &quot;https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-&quot;
+
+##setting up empty vectors to be added to in for loop
+countyabr &lt;- c()
+prec_nums &lt;- c()
+addresses &lt;- c()
+pollnames &lt;- c()
+lengthsequal &lt;- c() ##this can be used with commented out lines of the for loop to test if you have an equal number of entries for precincts and any other data of interest in the webscraper, only works for 1 thing at a time in this format (eg only precinct number and addresses or precinct number and poll name). Vector should all be TRUE if everything is equal, any instances of false entries should be investigated
+
+for(i in 1:length(endings)){
+  webpage &lt;- read_html(paste0(incomplete_url, endings[i])) ##reading county-specific webpage
+  number.data.html &lt;- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
+  number.data &lt;- html_text(number.data.html) ##converting to text
+  prec.numbers &lt;- str_remove_all(number.data, &quot;Precinct &quot;) ##removing unnecesary part of string
+  length &lt;- length(prec.numbers) ##Needed to add county abbreviation for each precinct entry in next line
+  countyabr &lt;- c(countyabr, rep(endings[i], length)) ##Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file
+  prec_nums &lt;- c(prec_nums, prec.numbers) ##Adding precinct numbers
+  address.data.html &lt;- html_nodes(webpage,'.NameAndAddress a') ##scraping addresses
+  address.data &lt;- html_text(address.data.html) ##converting to text
+  poll.address &lt;- str_replace_all(address.data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;, &quot;, &quot;) ##replacing unnecesary part of string
+  addresses &lt;- c(addresses, poll.address) ##adding to addresses vector
+  #length2 &lt;- length(poll.names)
+  #lengthsequal[i] &lt;- (length == length2)
+  name.data.html &lt;- html_nodes(webpage,'.Name') ##scraping poll names
+  name.data &lt;- html_text(name.data.html) ##converting to text
+  poll.name &lt;- str_remove_all(name.data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;) ##replacing unnecesary part of string
+  poll.names &lt;- str_remove_all(poll.name, &quot;\r\n\t\t\t\t\t\t\t\t&quot;) ##replacing unnecesary part of string part 2
+  pollnames &lt;- c(pollnames, poll.names) ##adding to pollnames vector
+  length3 &lt;- length(poll.names)
+  lengthsequal[i] &lt;- (length == length3)
+}</code></pre>
+<p>Webscraping odd counties, It’s worth noting that these could have been incorporated into the main webscraper loop with if statements but I decided not to do this since the counties have 2 different problems. This may be done later</p>
+<pre class="r"><code>##Leon county is missing data  for precinct 1201 (first listed), and for several other scattered precincts will fix this later
+
+#webpage &lt;- read_html(paste0(incomplete_url, leo_ending)) ##reading county-specific webpage, changed endings[i] to leo_ending
+#number.data.html &lt;- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
+#number.data &lt;- html_text(number.data.html) ##converting to text
+#prec.numbers &lt;- str_remove_all(number.data, &quot;Precinct &quot;) ##removing unnecesary part of string
+#length &lt;- length(prec.numbers) ##Needed to add county abbreviation for each precinct entry in next line
+#countyabr &lt;- c(countyabr, rep(leo_ending, length)) ##Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file, changed to leo_ending
+#prec_nums &lt;- c(prec_nums, prec.numbers) ##Adding precinct numbers
+#address.data.html &lt;- html_nodes(webpage,'.NameAndAddress a') ##scraping addresses
+#address.data &lt;- html_text(address.data.html) ##converting to text
+#poll.address &lt;- str_replace_all(address.data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;, &quot;, &quot;) ##replacing unnecesary part of string
+#addresses &lt;- c(addresses, c(NA, poll.address)) ##adding to addresses vector, putting one NA before address entries since the actual first precinct has no address
+#length2 &lt;- length(poll.names)
+#lengthsequal[i] &lt;- (length == length2)
+#name.data.html &lt;- html_nodes(webpage,'.Name') ##scraping poll names
+#name.data &lt;- html_text(name.data.html) ##converting to text
+#poll.name &lt;- str_remove_all(name.data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;) ##replacing unnecesary part of string
+#poll.names &lt;- str_remove_all(poll.name, &quot;\r\n\t\t\t\t\t\t\t\t&quot;) ##replacing unnecesary part of string part 2
+#pollnames &lt;- c(pollnames, c(NA, poll.names)) ##adding to pollnames vector, same change as addresses line
+#length3 &lt;- length(poll.names)
+#lengthsequal[i] &lt;- (length == length3)
+
+
+##Lee County has several empty precincts at the end
+
+webpage &lt;- read_html(paste0(incomplete_url, lee_ending)) ##reading county-specific webpage, changed to lee_ending
+number.data.html &lt;- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
+number.data &lt;- html_text(number.data.html) ##converting to text
+prec.numbers &lt;- str_remove_all(number.data, &quot;Precinct &quot;) ##removing unnecesary part of string
+length &lt;- length(prec.numbers) ##Needed to add county abbreviation for each precinct entry in next line
+countyabr &lt;- c(countyabr, rep(lee_ending, length)) ##Adding county abreviation for each entry, can be changed later to appropriate abbreviations for voter file, changed to lee_ending
+prec_nums &lt;- c(prec_nums, prec.numbers) ##Adding precinct numbers
+address.data.html &lt;- html_nodes(webpage,'.NameAndAddress a') ##scraping addresses
+address.data &lt;- html_text(address.data.html) ##converting to text
+poll.address &lt;- str_replace_all(address.data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;, &quot;, &quot;) ##replacing unnecesary part of string
+addresses &lt;- c(addresses, poll.address) ##adding to addresses vector
+#length2 &lt;- length(poll.address)
+#lengthsequal[i] &lt;- (length == length2)
+name.data.html &lt;- html_nodes(webpage,'.Name') ##scraping poll names
+name.data &lt;- html_text(name.data.html) ##converting to text
+poll.name &lt;- str_remove_all(name.data, &quot;\r\n\t\t\t\t\t\t\t\t\t&quot;) ##replacing unnecesary part of string
+poll.names &lt;- str_remove_all(poll.name, &quot;\r\n\t\t\t\t\t\t\t\t&quot;) ##replacing unnecesary part of string part 2
+length3 &lt;- length(poll.names) #uncommented and moved up to add appropriate amount of NAs
+pollnames &lt;- c(pollnames, c(poll.names, rep(NA, (length - length3)))) ##adding to pollnames vector, adding NAs to the end by the difference in lengths
+#lengthsequal[i] &lt;- (length == length3)</code></pre>
 </div>
 
 
