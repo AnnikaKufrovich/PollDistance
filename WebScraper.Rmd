@@ -40,7 +40,7 @@ number_data <- html_text(number_data_html)
 #Inspecting data
 head(number_data)
 
-##Converting to numeric vector
+##Removing precinct string from all entries
 prec_numbers <- str_remove_all(number_data, "Precinct ")
 
 ```
@@ -103,3 +103,22 @@ no_info_endings <- c("ORA", "SAR") ##Orange and Sarasota County's pages were emp
 
 ```
 
+```{r}
+incomplete_url <- "https://www.voterfocus.com/PrecinctFinder/precinctDirectory?county=FL-"
+
+##setting up empty vectors to be added to in for loop
+countyabr <- c()
+prec_nums <- c()
+
+
+for(i in 1:length(endings)){
+  webpage <- read_html(paste0(incomplete_url, endings[i])) ##county specific webpage
+  number.data.html <- html_nodes(webpage,'.PageSection .Title') ##scraping precint numbers
+  number.data <- html_text(number.data.html) ##converting to text
+  prec.numbers <- str_remove_all(number.data, "Precinct ")
+  length <- length(prec.numbers) #needed to add county abbreviation for each precinct entry
+  countyabr <- c(countyabr, rep(endings[i], length)) #Adding county abreviation for each entry, can be changed later to appropriate abbreviations
+  prec_nums <- c(prec_nums, prec.numbers)
+}
+
+```
