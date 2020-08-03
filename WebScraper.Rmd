@@ -83,8 +83,9 @@ head(poll_names)
 Making a data frame
 
 ```{r}
-ALApollplace <- data.frame(precinct = prec_numbers, address = poll_address, pollname = poll_names)
+ALApollplace <- data.frame(precinct = prec_numbers, address = poll_address, pollname = poll_names, abr = c(rep("ALA", length(prec_numbers))))
 head(ALApollplace)
+write.csv(ALApollplace, "alachuapollplace")
 ```
 
 
@@ -192,6 +193,10 @@ poll.names <- str_remove_all(poll.name, "\r\n\t\t\t\t\t\t\t\t") ##replacing unne
 length3 <- length(poll.names) #uncommented and moved up to add appropriate amount of NAs
 pollnames <- c(pollnames, c(poll.names, rep(NA, (length - length3)))) ##adding to pollnames vector, adding NAs to the end by the difference in lengths
 #lengthsequal[i] <- (length == length3)
+
+FLpollplace <- data.frame(abr = countyabr, precinct = prec_nums, address = addresses, pollname = pollnames)
+head(FLpollplace)
+write.csv(FLpollplace, "FLPollPlace")
 ```
 
 
