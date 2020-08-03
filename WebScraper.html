@@ -251,7 +251,7 @@ head(poll_names)</code></pre>
 ## [3] &quot;Legacy Park Multipurpose Center&quot;  &quot;Newberry United Methodist Church&quot;
 ## [5] &quot;First Lutheran Church&quot;            &quot;Newberry Municipal Building&quot;</code></pre>
 <p>Making a data frame</p>
-<pre class="r"><code>ALApollplace &lt;- data.frame(precinct = prec_numbers, address = poll_address, pollname = poll_names, abr = c(rep(&quot;ALA&quot;, length(prec_numbers))))
+<pre class="r"><code>ALApollplace &lt;- data.frame(precinct = prec_numbers, address = poll_address, pollname = poll_names, abr = c(rep(&quot;ALA&quot;, length(prec_numbers))), abrprecinct = paste0(c(rep(&quot;ALA&quot;, length(prec_numbers))), prec_numbers))
 head(ALApollplace)</code></pre>
 <pre><code>##   precinct                                     address
 ## 1       01      14370 Kennard St, Waldo, FL 32694-0216
@@ -260,13 +260,13 @@ head(ALApollplace)</code></pre>
 ## 4       04  24845 Newberry Rd, Newberry, FL 32669-0000
 ## 5       05 1801 NW 5th Ave, Gainesville, FL 32603-1624
 ## 6       06     25420 W Newberry Rd, Newberry, FL 32669
-##                           pollname abr
-## 1    First Baptist Church of Waldo ALA
-## 2               LaCrosse Town Hall ALA
-## 3  Legacy Park Multipurpose Center ALA
-## 4 Newberry United Methodist Church ALA
-## 5            First Lutheran Church ALA
-## 6      Newberry Municipal Building ALA</code></pre>
+##                           pollname abr abrprecinct
+## 1    First Baptist Church of Waldo ALA       ALA01
+## 2               LaCrosse Town Hall ALA       ALA02
+## 3  Legacy Park Multipurpose Center ALA       ALA03
+## 4 Newberry United Methodist Church ALA       ALA04
+## 5            First Lutheran Church ALA       ALA05
+## 6      Newberry Municipal Building ALA       ALA06</code></pre>
 <pre class="r"><code>write.csv(ALApollplace, &quot;alachuapollplace&quot;)</code></pre>
 </div>
 <div id="every-florida-county" class="section level2">
@@ -359,7 +359,7 @@ length3 &lt;- length(poll.names) #uncommented and moved up to add appropriate am
 pollnames &lt;- c(pollnames, c(poll.names, rep(NA, (length - length3)))) ##adding to pollnames vector, adding NAs to the end by the difference in lengths
 #lengthsequal[i] &lt;- (length == length3)
 
-FLpollplace &lt;- data.frame(abr = countyabr, precinct = prec_nums, address = addresses, pollname = pollnames)
+FLpollplace &lt;- data.frame(abr = countyabr, precinct = prec_nums, address = addresses, pollname = pollnames, abrprecincts = paste0(countyabr, prec_nums))
 head(FLpollplace)</code></pre>
 <pre><code>##   abr precinct                                     address
 ## 1 ALA       01      14370 Kennard St, Waldo, FL 32694-0216
@@ -368,13 +368,13 @@ head(FLpollplace)</code></pre>
 ## 4 ALA       04  24845 Newberry Rd, Newberry, FL 32669-0000
 ## 5 ALA       05 1801 NW 5th Ave, Gainesville, FL 32603-1624
 ## 6 ALA       06     25420 W Newberry Rd, Newberry, FL 32669
-##                           pollname
-## 1    First Baptist Church of Waldo
-## 2               LaCrosse Town Hall
-## 3  Legacy Park Multipurpose Center
-## 4 Newberry United Methodist Church
-## 5            First Lutheran Church
-## 6      Newberry Municipal Building</code></pre>
+##                           pollname abrprecincts
+## 1    First Baptist Church of Waldo        ALA01
+## 2               LaCrosse Town Hall        ALA02
+## 3  Legacy Park Multipurpose Center        ALA03
+## 4 Newberry United Methodist Church        ALA04
+## 5            First Lutheran Church        ALA05
+## 6      Newberry Municipal Building        ALA06</code></pre>
 <pre class="r"><code>write.csv(FLpollplace, &quot;FLPollPlace&quot;)</code></pre>
 </div>
 
