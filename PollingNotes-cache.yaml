@@ -73,7 +73,7 @@ options:
     2.9\miktex\bin\x64;%ProgramFiles(x86)%\MiKTeX 2.9\miktex\bin;$PATH
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2020-07-06T18:26:30.005Z
+    timeStamp: 2020-09-17T19:00:59.156Z
     jobNames: []
     value:
       severity: info
@@ -134,13 +134,13 @@ files:
         2.9\miktex\bin\x64;%ProgramFiles(x86)%\MiKTeX 2.9\miktex\bin;$PATH
     type: ParsedYAML
   PollingNotes.tex:
-    timeStamp: 2020-07-10T17:16:55.751Z
+    timeStamp: 2020-09-17T20:05:30.850Z
     jobNames: []
-    hash: pijbSH4I0cBSpY3BwC8kaIIp/dDI0Cq6BcmyggrxRJk=
+    hash: gKTaimN3MK6pnFVb+7eb7hH1+Ghzth7w176iKkwy564=
     type: LaTeX
     subType: article
   'C:\Users\TeenieTiny\AppData\Roaming\dicy\config.yaml':
-    timeStamp: 2020-07-06T17:15:02.628Z
+    timeStamp: 2020-09-17T19:00:59.296Z
     jobNames: []
     type: YAML
   x.y-Nil:
@@ -150,7 +150,7 @@ files:
     jobNames: []
     type: ParsedFileListing
   PollingNotes.log-ParsedLaTeXLog:
-    timeStamp: 2020-07-10T16:11:42.777Z
+    timeStamp: 2020-09-17T20:04:02.954Z
     jobNames: []
     value:
       messages:
@@ -1445,8 +1445,8 @@ files:
           source:
             file: PollingNotes.toc
             range:
-              start: 3
-              end: 3
+              start: 4
+              end: 4
           log:
             file: PollingNotes.log
             range:
@@ -1459,8 +1459,8 @@ files:
           source:
             file: PollingNotes.toc
             range:
-              start: 3
-              end: 3
+              start: 4
+              end: 4
           log:
             file: PollingNotes.log
             range:
@@ -1473,8 +1473,8 @@ files:
           source:
             file: PollingNotes.toc
             range:
-              start: 3
-              end: 3
+              start: 4
+              end: 4
           log:
             file: PollingNotes.log
             range:
@@ -1487,8 +1487,8 @@ files:
           source:
             file: PollingNotes.toc
             range:
-              start: 3
-              end: 3
+              start: 4
+              end: 4
           log:
             file: PollingNotes.log
             range:
@@ -1501,8 +1501,8 @@ files:
           source:
             file: PollingNotes.toc
             range:
-              start: 3
-              end: 3
+              start: 4
+              end: 4
           log:
             file: PollingNotes.log
             range:
@@ -1547,13 +1547,13 @@ files:
           source:
             file: PollingNotes.tex
             range:
-              start: 45
-              end: 45
+              start: 50
+              end: 50
           log:
             file: PollingNotes.log
             range:
-              start: 390
-              end: 391
+              start: 396
+              end: 397
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -1561,13 +1561,13 @@ files:
           source:
             file: PollingNotes.tex
             range:
-              start: 278
-              end: 278
+              start: 249
+              end: 249
           log:
             file: PollingNotes.log
             range:
-              start: 405
-              end: 405
+              start: 411
+              end: 411
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -1575,13 +1575,13 @@ files:
           source:
             file: PollingNotes.tex
             range:
-              start: 278
-              end: 278
+              start: 249
+              end: 249
           log:
             file: PollingNotes.log
             range:
-              start: 409
-              end: 409
+              start: 415
+              end: 415
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -1589,13 +1589,13 @@ files:
           source:
             file: PollingNotes.tex
             range:
-              start: 278
-              end: 278
+              start: 249
+              end: 249
           log:
             file: PollingNotes.log
             range:
-              start: 412
-              end: 412
+              start: 418
+              end: 418
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -1603,13 +1603,13 @@ files:
           source:
             file: PollingNotes.tex
             range:
-              start: 278
-              end: 278
+              start: 249
+              end: 249
           log:
             file: PollingNotes.log
             range:
-              start: 413
-              end: 413
+              start: 419
+              end: 419
         - severity: warning
           name: pdfTeX
           category: Package rerunfilecheck
@@ -1621,22 +1621,22 @@ files:
           log:
             file: PollingNotes.log
             range:
-              start: 415
-              end: 417
+              start: 421
+              end: 423
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             Checksums for `PollingNotes.out': Before:
-            1B2E0C316B2A9A1D7FDB32A806D5EC73;621 After:
-            25A391DF3E4A530E44413DF8CAA4C582;629.
+            744E984D437EA2D9F9F5F0E176405327;681 After:
+            C5C6E01C6B8C1939FE68B4F42D18EDDC;667.
           source:
             file: PollingNotes.tex
           log:
             file: PollingNotes.log
             range:
-              start: 419
-              end: 421
+              start: 425
+              end: 427
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -1644,28 +1644,28 @@ files:
           source:
             file: PollingNotes.tex
             range:
-              start: 278
-              end: 278
+              start: 249
+              end: 249
           log:
             file: PollingNotes.log
             range:
-              start: 422
-              end: 422
+              start: 428
+              end: 428
       inputs: []
       outputs:
         - PollingNotes.pdf
       calls: []
     type: ParsedLaTeXLog
   PollingNotes.log:
-    timeStamp: 2020-07-10T16:11:42.380Z
+    timeStamp: 2020-09-17T20:04:02.396Z
     jobNames: []
-    hash: BaloQqtMHt1oHdtmAGa8uravim1dijWQP6qg5XTU6zg=
+    hash: hr72VDWsAgBgbhVi3SxS1TQ/XwqVtfUHi/w/wbKI0Wg=
     type: LaTeXLog
     subType: pdfTeX
   PollingNotes.pdf:
-    timeStamp: 2020-07-10T17:49:52.142Z
+    timeStamp: 2020-09-17T20:05:38.780Z
     jobNames: []
-    hash: taL2k9+okTvdP3l0/o2P1TxtKbISoSbl1MkSr+f9Lxg=
+    hash: j+XVRsq3wjdbsSifv265fR5FWPeyWrVLU37oeOp3oVI=
     type: PortableDocumentFormat
 rules:
   - name: ApplyOptions

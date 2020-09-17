@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.4)  10 JUL 2020 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.4)  17 SEP 2020 16:05
 entering extended mode
-**"C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.tex"
-("C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.tex"
+**"C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.tex"
+("C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.tex"
 LaTeX2e <2018-04-01> patch level 5
 
 ("C:\Users\TeenieTiny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.
@@ -248,7 +248,7 @@ Package: authblk 2001/02/27 1.3 (PWD)
 zo.sty"
 Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup5
-) ("C:\Users\TeenieTiny\Desktop\3rd Year\PollDistance\PollingNotes.aux")
+) ("C:\Users\TeenieTiny\Desktop\3rd Year\Summer\PollDistance\PollingNotes.aux")
 \openout1 = `PollingNotes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -317,14 +317,14 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 22.
 LaTeX Info: Redefining \pageref on input line 22.
 LaTeX Info: Redefining \nameref on input line 22.
-("C:\Users\TeenieTiny\Desktop\3rd Year\PollDistance\PollingNotes.out") ("C:\Use
-rs\TeenieTiny\Desktop\3rd Year\PollDistance\PollingNotes.out")
+("C:\Users\TeenieTiny\Desktop\3rd Year\Summer\PollDistance\PollingNotes.out") (
+"C:\Users\TeenieTiny\Desktop\3rd Year\Summer\PollDistance\PollingNotes.out")
 \@outlinefile=\write3
 \openout3 = `PollingNotes.out'.
 
 \big@size=\dimen112
-C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.tex:24: Undefine
-d control sequence
+C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.tex:24: U
+ndefined control sequence
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -337,34 +337,34 @@ and I'll forget about whatever was undefined.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 27.
 
-("C:\Users\TeenieTiny\Desktop\3rd Year\PollDistance\PollingNotes.toc"
+("C:\Users\TeenieTiny\Desktop\3rd Year\Summer\PollDistance\PollingNotes.toc"
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 4.
 
 ("C:\Users\TeenieTiny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omlzpl
 m.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 4.
 
 ("C:\Users\TeenieTiny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omszpl
 m.fd"
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 4.
 
 ("C:\Users\TeenieTiny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\omxzpl
 m.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 3.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 4.
 
 ("C:\Users\TeenieTiny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ulasy.fd
 "
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 3.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 4.
 
 ("C:\Users\TeenieTiny\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1zpl
 m.fd"
@@ -384,53 +384,59 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+
+Overfull \hbox (18.92545pt too wide) in paragraph at lines 39--40
+\OT1/ppl/m/n/12 nav-i-gates to in-di-vid-ual SoE web-sites for polling lo-ca-ti
+on. Be-cause of the non-uniformity
+ []
+
  [3
 
 ]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 45.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 50.
  [4
 
-] [5] [6] [7] [8] [9
+] [5] [6] [7] [8
+
+] [9
 
 ] [10
 
 ] [11
 
-] [12] [13
-
-] [14
-
-] [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
- [16
+] [12
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 253.
+ [13
 
-("C:\Users\TeenieTiny\Desktop\3rd Year\PollDistance\PollingNotes.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 253.
+
+("C:\Users\TeenieTiny\Desktop\3rd Year\Summer\PollDistance\PollingNotes.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 253.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 253.
 Package rerunfilecheck Info: File `PollingNotes.out' has not changed.
-(rerunfilecheck)             Checksum: 25A391DF3E4A530E44413DF8CAA4C582;629.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
+(rerunfilecheck)             Checksum: C5C6E01C6B8C1939FE68B4F42D18EDDC;667.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 253.
  ) 
 Here is how much of TeX's memory you used:
- 5839 strings out of 492973
- 88186 string characters out of 3124478
+ 5838 strings out of 492973
+ 88280 string characters out of 3124478
  173802 words of memory out of 3000000
- 9613 multiletter control sequences out of 15000+200000
+ 9614 multiletter control sequences out of 15000+200000
  16456 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,5n,28p,551b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,5n,28p,549b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8
 r.enc}<C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb><C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/
 fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/TeenieTiny/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb>
-Output written on PollingNotes.pdf (16 pages, 87577 bytes).
+Output written on PollingNotes.pdf (13 pages, 76211 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 166 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

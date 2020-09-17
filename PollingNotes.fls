@@ -1,6 +1,6 @@
-PWD C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance
+PWD C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance
 INPUT C:/Users/TeenieTiny/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.tex
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.tex
 OUTPUT PollingNotes.log
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cls
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cls
@@ -60,8 +60,8 @@ INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/preprint/a
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/preprint/authblk.sty
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/mathpazo.sty
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/mathpazo.sty
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.aux
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.aux
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.aux
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.aux
 OUTPUT PollingNotes.aux
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1ppl.fd
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1ppl.fd
@@ -76,13 +76,13 @@ INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/n
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/nameref.sty
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/gettitlestring.sty
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/gettitlestring.sty
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
 OUTPUT PollingNotes.pdf
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
 OUTPUT PollingNotes.out
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
@@ -95,8 +95,8 @@ INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/vf/adobe/palat
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplb7t.tfm
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.toc
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.toc
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.toc
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.toc
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplb7t.tfm
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
@@ -136,9 +136,9 @@ INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplb7t.tfm
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/vf/adobe/palatino/pplb7t.vf
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplb8r.tfm
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.aux
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
-INPUT C:/Users/TeenieTiny/Desktop/3rd Year/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.aux
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
+INPUT C:/Users/TeenieTiny/Desktop/3rd Year/Summer/PollDistance/PollingNotes.out
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT C:/Users/TeenieTiny/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
